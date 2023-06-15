@@ -23,10 +23,15 @@ import time
 
 from matplotlib import pyplot as plt
 import qrcode
+import os
 
+server_url = os.getenv("SERVER_URL")
+
+# Get show QR flag
+show_qr = os.getenv("SHOW_QR_IN_POPUP")
+show_qr = show_qr.lower() in ['true', '1', 't', 'y', 'yes']
 
 class BotRoutesAPI:
-    server_url = 'https://server-adress-given-by-sendapp'
     BASE_URL = server_url + '/api/v1'  # Update this as needed
 
     def __init__(self, token):
@@ -55,12 +60,13 @@ class BotRoutesAPI:
             elif status == 'not ready':
                 # Check if qr_code is available in response
                 if 'qr_code' in result and result['qr_code']:
-                    qr_code_str = result['qr_code']
-                    img = qrcode.make(qr_code_str)
-                    plt.clf()  # clear the figure for next iteration
-                    plt.imshow(img)
-                    plt.show(block=False)
-                    plt.pause(0.1)  # pause a bit so that the plot gets updated
+                    if show_qr:
+                        qr_code_str = result['qr_code']
+                        img = qrcode.make(qr_code_str)
+                        plt.clf()  # clear the figure for next iteration
+                        plt.imshow(img)
+                        plt.show(block=False)
+                        plt.pause(0.1)  # pause a bit so that the plot gets updated
 
             else:
                 print("Error:", result.get('error'))

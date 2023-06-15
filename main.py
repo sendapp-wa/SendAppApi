@@ -17,15 +17,17 @@ You should have received a copy of the MIT License along with this program.
 If not, see <https://opensource.org/licenses/MIT>.
 """
 
-VERSION = "1.0.0"
-
+VERSION = "1.0.1"
 
 from RunTestScenario import RunTestScenario
 from api.botRoutes import BotRoutesAPI
 
+from dotenv import load_dotenv
+import os
+
+
 
 def main():
-    admin_token = "your-admin-token-here"  # Replace with your actual admin token
     # Create the API client
     api_client = BotRoutesAPI(admin_token)
 
