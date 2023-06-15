@@ -17,7 +17,7 @@ You should have received a copy of the MIT License along with this program.
 If not, see <https://opensource.org/licenses/MIT>.
 """
 
-VERSION = "1.0.1"
+VERSION = "1.0.2"
 
 
 from dotenv import load_dotenv
