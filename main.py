@@ -19,13 +19,16 @@ If not, see <https://opensource.org/licenses/MIT>.
 
 VERSION = "1.0.1"
 
-from RunTestScenario import RunTestScenario
-from api.botRoutes import BotRoutesAPI
 
 from dotenv import load_dotenv
 import os
 
+load_dotenv()
 
+from RunTestScenario import RunTestScenario
+from api.botRoutes import BotRoutesAPI
+
+admin_token = os.getenv("ADMIN_TOKEN")
 
 def main():
     # Create the API client
@@ -39,7 +42,7 @@ def main():
     bot_token = create_bot_response['token']
 
     # Define the list of numbers
-    phone_numbers = ["972555555555", "972555555555"]  # Replace with actual numbers
+    # phone_numbers = ["972555555555", "972555555555"]  # Replace with actual numbers
 
     # Define the test scenario
     scenario = [
