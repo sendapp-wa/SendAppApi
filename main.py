@@ -42,7 +42,7 @@ def main():
     bot_token = create_bot_response['token']
 
     # Define the list of numbers
-    # phone_numbers = ["972555555555", "972555555555"]  # Replace with actual numbers
+    phone_numbers = ["972555555555", "972555555555"]  # Replace with actual numbers
 
     # Define the test scenario
     scenario = [

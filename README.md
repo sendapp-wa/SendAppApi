@@ -10,23 +10,25 @@ This project provides a framework for testing SendApp SaaS API. It provides a Py
 
 ## Configuration
 
-Before you can run the testing framework, you'll need to set the `admin_token` in the `main.py` script that were given to you by SendApp. 
+Before you can run the testing framework, you need to rename example.env to .env and update the parameters in it.
+
+1. you'll need to set the `admin_token` in the `.env` were given to you by SendApp. 
 This token will be used to authenticate some of your requests.
 
+```python - .env
+ADMIN_TOKEN='your-admin-token'
+```
+
+2. Change the server-adress-given-by-sendapp with the server DNS given to you
+```python - .env
+SERVER_URL='server-url'
+```
+
+3. Change the dummy numbers to have a valid list of numbers you want to sent the message to
 ```python - main.py
-admin_token = "your-admin-token-here"
-
+phone_numbers = ["972555555555", "972555555555"]  # Replace with actual numbers
 ```
-Change the server-adress-given-by-sendapp with the server DNS given to you
-```python - api/botRoutes.py
-server_url = 'https://server-adress-given-by-sendapp'
-```
-
-Change the dummy numbers to have a valid list of numbers you want to sent the message to
-```python - api/botRoutes.py
-server_url = 'https://server-adress-given-by-sendapp'
-```
-# Usage
+## Usage
 This framework provides the following API functions:
 
 ```python - main.py
@@ -54,7 +56,7 @@ results = runner.get_results()
 ``` 
 The results object will be a list of dictionaries, where each dictionary contains the 'action', 'args', and 'result' (the API response) for each step.
 
-# Contribution
+## Contribution
 As this code is licensed under MIT, you're free to use it as you please, including making and distributing closed source versions. However, any modification to the codebase should be done in a separate branch or in your own copy of the project. We ask that you do not directly modify the code in the main branch.
 
 ```
